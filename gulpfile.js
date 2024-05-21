@@ -1,5 +1,4 @@
-const { src, dest, task, series } = require('gulp')
-const { watch } = require('gulp')
+const { src, dest, task, series, watch } = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const browserSync = require('browser-sync').create()
 const cssnano = require('cssnano')
@@ -7,8 +6,8 @@ const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const csscomb = require('gulp-csscomb')
 const autoprefixer = require('autoprefixer')
-const mqpacker = require('css-mqpacker' )
-const sortCSSmq = require('sort-css-media-queries' )
+const mqpacker = require('css-mqpacker')
+const sortCSSmq = require('sort-css-media-queries')
 
 const PATH = {
   scssRoot: './assets/scss/style.scss',
@@ -64,7 +63,6 @@ function scssMin() {
 
 function comb() {
   return src(PATH.scssFiles)
-    .pipe(csscomb())
     .pipe(dest(PATH.scssFolder))
     .pipe(csscomb('.csscomb.json'))
 }
