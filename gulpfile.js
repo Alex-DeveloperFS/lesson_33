@@ -63,8 +63,8 @@ function scssMin() {
 
 function comb() {
   return src(PATH.scssFiles)
+    .pipe(csscomb())
     .pipe(dest(PATH.scssFolder))
-    .pipe(csscomb('.csscomb.json'))
 }
 
 async function reload() {
